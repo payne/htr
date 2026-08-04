@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ham Radio Technician License — Exam Reference Guide</title>
+<style>
+/* ═══ PRINT CONFIG ═══ */
+@page { size: 11in 8.5in landscape; margin: 0; }
+
+/* ═══ RESET ═══ */
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+/* ═══ BASE ═══ */
+body {
+  font-family:'Arial Narrow','Helvetica Neue Condensed',Arial,Helvetica,sans-serif;
+  font-size:7pt; line-height:1.3; color:#1a1a2e;
+  background:#8a9ab5;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+
+/* ═══ SCREEN CONTROLS ═══ */
+.screen-only {
+  display:flex; gap:10px; align-items:center; justify-content:center;
+  padding:8px; background:#1a2744; flex-wrap:wrap;
+}
+.print-btn {
+  padding:6px 18px; background:#22863a; color:white; border:none;
+  border-radius:4px; font-size:13px; cursor:pointer; font-family:Arial,sans-serif;
+  font-weight:bold; letter-spacing:.5px;
+}
+.print-btn:hover { background:#2ea44f; }
+.print-note {
+  color:#adbdd8; font-family:Arial,sans-serif; font-size:11px;
+}
+@media print { .screen-only { display:none; } body { background:white; } .page { box-shadow:none !important; margin:0 !important; } }
+
+/* ═══ PAGE ═══ */
+.page {
+  width:10.9in; height:8.3in; margin:.08in auto; background:white;
+  page-break-after:always; display:flex; flex-direction:column;
+  box-shadow:0 4px 20px rgba(0,0,0,.4); overflow:hidden;
+}
+.page:last-child { page-break-after:avoid; }
+
+/* ═══ PAGE HEADER ═══ */
+.page-header {
+  background:linear-gradient(135deg,#0B1F3E 0%,#1A3A72 100%);
+  color:white; padding:3px 10px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-shrink:0; border-bottom:2px solid #2a5298;
+}
+.ph-title { font-size:9.5pt; font-weight:bold; letter-spacing:1.5px; text-transform:uppercase; }
+.ph-side  { font-size:7.5pt; opacity:.8; letter-spacing:1px; }
+
+/* ═══ BODY / COLUMNS ═══ */
+.page-body { display:flex; flex:1; overflow:hidden; }
+.col {
+  flex:1; display:flex; flex-direction:column;
+  padding:.09in .08in; gap:.06in; overflow:hidden;
+  border-right:1px solid #dde3ef;
+}
+.col:last-child { border-right:none; }
+
+/* ═══ CARD ═══ */
+.card { border-radius:3px; overflow:hidden; flex-shrink:0; }
+.ch { /* header */
+  display:flex; align-items:center; gap:4px;
+  padding:2.5px 6px; font-size:6.8pt; font-weight:bold;
+  letter-spacing:.8px; text-transform:uppercase; color:white;
+}
+.cb { /* body */
+  padding:3px 5px; background:white;
+  border:1px solid #d8dde8; border-top:none; border-radius:0 0 3px 3px;
+}
+
+/* colour themes */
+.th-navy .ch   { background:#0B1F3E; }
+.th-blue .ch   { background:#1565C0; }
+.th-red .ch    { background:#B71C1C; }
+.th-green .ch  { background:#1B5E20; }
+.th-orange .ch { background:#D84315; }
+.th-purple .ch { background:#4A148C; }
+.th-teal .ch   { background:#00695C; }
+.th-indigo .ch { background:#283593; }
+.th-brown .ch  { background:#4E342E; }
+.th-amber .ch  { background:#BF6000; }
+
+/* ═══ TABLES ═══ */
+table { width:100%; border-collapse:collapse; font-size:6.3pt; }
+th {
+  background:#e8ecf4; font-weight:bold; padding:2px 3px;
+  border-bottom:1.5px solid #9ba8c8; text-align:left;
+  font-size:5.8pt; text-transform:uppercase; letter-spacing:.3px; color:#374063;
+}
+td { padding:1.5px 3px; border-bottom:1px solid #eef0f5; vertical-align:middle; }
+tr:nth-child(even) td { background:#f7f8fc; }
+.td-b  { font-weight:bold; }
+.td-m  { font-family:'Courier New',monospace; font-size:6pt; }
+.td-c  { text-align:center; }
+
+/* band rows */
+.row-hf  td { background:#edf7ee !important; }
+.row-vhf td { background:#e8f0fd !important; }
+.row-uhf td { background:#fff4eb !important; }
+.row-shf td { background:#fdeef2 !important; }
+
+/* ═══ FORMULA BOXES ═══ */
+.fb {
+  display:flex; align-items:baseline; gap:5px;
+  padding:2px 4px; margin:1.5px 0;
+  border-left:3px solid #1B5E20; background:#f0faf1;
+  border-radius:0 2px 2px 0;
+}
+.fl { font-size:5.8pt; color:#2e7d32; font-weight:bold; white-space:nowrap; min-width:72px; }
+.fe { font-family:'Courier New',monospace; font-size:7pt; font-weight:bold; color:#0B1F3E; }
+.fn { font-size:5pt; color:#777; font-style:italic; }
+
+.fb.red    { border-left-color:#B71C1C; background:#fff0f0; }
+.fb.red .fl { color:#c62828; }
+.fb.blue   { border-left-color:#1565C0; background:#edf3fd; }
+.fb.blue .fl { color:#1565c0; }
+.fb.orange { border-left-color:#D84315; background:#fff3ee; }
+.fb.orange .fl { color:#d84315; }
+.fb.purple { border-left-color:#4A148C; background:#f5eeff; }
+.fb.purple .fl { color:#4a148c; }
+
+/* ═══ LISTS ═══ */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:0 4px; }
+
+.phon-item { display:flex; gap:3px; padding:1px 2px; font-size:6.3pt; border-bottom:1px solid #f0f0f0; }
+.phon-l { font-weight:bold; color:#0B1F3E; min-width:10px; }
+.phon-w { color:#333; }
+
+.q-item { display:flex; gap:4px; padding:1px 2px; font-size:6.3pt; border-bottom:1px solid #f0f0f0; align-items:baseline; }
+.q-code { font-weight:bold; color:#B71C1C; min-width:27px; font-family:monospace; font-size:6.5pt; }
+.q-def  { color:#333; }
+
+.ri { display:flex; gap:4px; padding:1.2px 2px; font-size:6.3pt; border-bottom:1px solid #eef0f5; align-items:flex-start; }
+.rb { color:#283593; font-weight:bold; flex-shrink:0; }
+
+.pi { padding:1.5px 2px; font-size:6.2pt; border-bottom:1px solid #eef0f5; }
+.pn { font-weight:bold; color:#0B1F3E; }
+
+/* ═══ MISC ═══ */
+hr { border:none; border-top:1px solid #e4e8f0; margin:2.5px 0; }
+.callout { background:#fffbea; border:1px solid #f5c842; border-radius:2px; padding:2px 5px; font-size:5.8pt; margin:2px 0; }
+.callout.red { background:#fff0ee; border-color:#f4a4a4; }
+.sl { font-size:5.5pt; font-weight:bold; text-transform:uppercase; letter-spacing:.5px; color:#8a95b0; padding:2px 0 1px; }
+.tiny { font-size:5.3pt; color:#888; }
+.mono { font-family:'Courier New',monospace; }
+.bold { font-weight:bold; }
+
+/* badges */
+.badge { display:inline-block; padding:0 2px; border-radius:2px; font-size:5.3pt; font-weight:bold; }
+.b-cw  { background:#ede7f6; color:#4a148c; }
+.b-ph  { background:#e3f2fd; color:#0d47a1; }
+.b-dt  { background:#e8f5e9; color:#1b5e20; }
+.b-all { background:#e8eaf6; color:#283593; }
+</style>
+</head>
+<body>
+
+<div class="screen-only">
+  <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+  <span class="print-note">In print dialog → Landscape orientation · Margins: None · Background graphics: ON</span>
+</div>
+
+<!-- ══════════════════════════ SIDE 1 ══════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="ph-title">📻 Ham Radio Technician License — Quick Reference</div>
+    <div class="ph-side">SIDE 1 · Electronics · Formulas · Frequencies</div>
+  </div>
+  <div class="page-body">
+
+    <!-- ─── COL 1: Formula Wheels + SI Prefixes ─── -->
+    <div class="col">
+
+      <div class="card th-navy">
+        <div class="ch">⚡ Ohm's Law &amp; Power — Formula Wheel</div>
+        <div class="cb" style="text-align:center;padding:4px 2px 2px;">
+          <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg"
+               width="100%" style="max-height:186px;display:block;margin:0 auto;">
+            <!-- outer glow ring -->
+            <circle cx="130" cy="130" r="128" fill="#0B1F3E" opacity=".2"/>
+            <circle cx="130" cy="130" r="126" fill="#0B1F3E"/>
+            <!-- four sectors -->
+            <!-- E: top-left (blue) -->
+            <path d="M130,130 L130,5 A125,125 0 0,0 5,130 Z" fill="#1565C0"/>
+            <!-- P: top-right (red) -->
+            <path d="M130,130 L130,5 A125,125 0 0,1 255,130 Z" fill="#B71C1C"/>
+            <!-- I: bottom-left (green) -->
+            <path d="M130,130 L130,255 A125,125 0 0,1 5,130 Z" fill="#1B5E20"/>
+            <!-- R: bottom-right (orange) -->
+            <path d="M130,130 L130,255 A125,125 0 0,0 255,130 Z" fill="#D84315"/>
+            <!-- dividers -->
+            <line x1="130" y1="5" x2="130" y2="255" stroke="white" stroke-width="2.5"/>
+            <line x1="5"   y1="130" x2="255" y2="130" stroke="white" stroke-width="2.5"/>
+            <!-- outer ring -->
+            <circle cx="130" cy="130" r="125" fill="none" stroke="white" stroke-width=".8" opacity=".4"/>
+            <!-- center circle -->
+            <circle cx="130" cy="130" r="34" fill="white"/>
+            <circle cx="130" cy="130" r="34" fill="none" stroke="#ccd" stroke-width="1"/>
+            <text x="130" y="122" text-anchor="middle" font-family="Arial" font-size="8.5" font-weight="bold" fill="#0B1F3E">OHM'S</text>
+            <text x="130" y="133" text-anchor="middle" font-family="Arial" font-size="8.5" font-weight="bold" fill="#0B1F3E">LAW &amp;</text>
+            <text x="130" y="144" text-anchor="middle" font-family="Arial" font-size="8.5" font-weight="bold" fill="#0B1F3E">POWER</text>
+            <!-- ── E top-left ── -->
+            <text x="72" y="47" text-anchor="middle" font-family="Arial" font-size="27" font-weight="bold" fill="white">E</text>
+            <text x="72" y="59" text-anchor="middle" font-family="Arial" font-size="6.5" fill="#BBDEFB">Voltage (V)</text>
+            <text x="72" y="74" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= I × R</text>
+            <text x="72" y="87" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= P ÷ I</text>
+            <text x="72" y="100" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= √(P×R)</text>
+            <!-- ── P top-right ── -->
+            <text x="188" y="47" text-anchor="middle" font-family="Arial" font-size="27" font-weight="bold" fill="white">P</text>
+            <text x="188" y="59" text-anchor="middle" font-family="Arial" font-size="6.5" fill="#FFCDD2">Power (W)</text>
+            <text x="188" y="74" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= E × I</text>
+            <text x="188" y="87" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= I² × R</text>
+            <text x="188" y="100" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= E² ÷ R</text>
+            <!-- ── I bottom-left ── -->
+            <text x="72" y="157" text-anchor="middle" font-family="Arial" font-size="27" font-weight="bold" fill="white">I</text>
+            <text x="72" y="169" text-anchor="middle" font-family="Arial" font-size="6.5" fill="#C8E6C9">Current (A)</text>
+            <text x="72" y="183" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= E ÷ R</text>
+            <text x="72" y="196" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= P ÷ E</text>
+            <text x="72" y="209" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= √(P÷R)</text>
+            <!-- ── R bottom-right ── -->
+            <text x="188" y="157" text-anchor="middle" font-family="Arial" font-size="27" font-weight="bold" fill="white">R</text>
+            <text x="188" y="169" text-anchor="middle" font-family="Arial" font-size="6.5" fill="#FFE0B2">Resistance (Ω)</text>
+            <text x="188" y="183" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= E ÷ I</text>
+            <text x="188" y="196" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= E² ÷ P</text>
+            <text x="188" y="209" text-anchor="middle" font-family="Arial" font-size="9.5" fill="white" font-weight="bold">= P ÷ I²</text>
+          </svg>
+          <div class="tiny" style="margin-top:2px;font-style:italic;">Cover the unknown variable — solve from the other two</div>
+        </div>
+      </div>
+
+      <div class="card th-teal">
+        <div class="ch">Ω SI Metric Prefixes</div>
+        <div class="cb" style="padding:3px 4px;">
+          <table>
+            <thead><tr><th>Prefix</th><th>Symbol</th><th>Power</th><th>Factor</th><th>Ham Example</th></tr></thead>
+            <tbody>
+              <tr><td class="td-b">Giga</td><td class="td-m">G</td><td class="td-m">10⁹</td><td>1,000,000,000</td><td class="td-m">1.2 GHz</td></tr>
+              <tr><td class="td-b">Mega</td><td class="td-m">M</td><td class="td-m">10⁶</td><td>1,000,000</td><td class="td-m">14.225 MHz</td></tr>
+              <tr><td class="td-b">Kilo</td><td class="td-m">k</td><td class="td-m">10³</td><td>1,000</td><td class="td-m">7,300 kHz</td></tr>
+              <tr style="background:#f9fbe7!important"><td colspan="5" class="tiny" style="padding:1px 4px;font-style:italic;color:#888;">── BASE UNIT (×1): Hz, W, V, A, Ω ──</td></tr>
+              <tr><td class="td-b">Milli</td><td class="td-m">m</td><td class="td-m">10⁻³</td><td>0.001</td><td class="td-m">500 mW</td></tr>
+              <tr><td class="td-b">Micro</td><td class="td-m">μ</td><td class="td-m">10⁻⁶</td><td>0.000001</td><td class="td-m">100 μF</td></tr>
+              <tr><td class="td-b">Nano</td><td class="td-m">n</td><td class="td-m">10⁻⁹</td><td>10⁻⁹</td><td class="td-m">10 nF</td></tr>
+              <tr><td class="td-b">Pico</td><td class="td-m">p</td><td class="td-m">10⁻¹²</td><td>10⁻¹²</td><td class="td-m">47 pF</td></tr>
+            </tbody>
+          </table>
+          <div class="callout" style="margin-top:3px;">
+            <strong>Quick:</strong> 1 MHz = 1,000 kHz = 1,000,000 Hz &nbsp;·&nbsp; 1 kW = 1,000 W
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /col1 -->
+
+    <!-- ─── COL 2: Units + Key Formulas ─── -->
+    <div class="col">
+
+      <div class="card th-purple">
+        <div class="ch">📐 Electrical Units &amp; Symbols</div>
+        <div class="cb" style="padding:2px 4px;">
+          <table>
+            <thead><tr><th>Quantity</th><th>Unit</th><th>Sym</th><th>Measured With</th></tr></thead>
+            <tbody>
+              <tr><td>Voltage / EMF</td><td>Volt</td><td class="td-m">V (E)</td><td>Voltmeter</td></tr>
+              <tr><td>Current</td><td>Ampere</td><td class="td-m">A (I)</td><td>Ammeter</td></tr>
+              <tr><td>Resistance</td><td>Ohm</td><td class="td-m">Ω (R)</td><td>Ohmmeter</td></tr>
+              <tr><td>Power</td><td>Watt</td><td class="td-m">W (P)</td><td>Wattmeter</td></tr>
+              <tr><td>Frequency</td><td>Hertz</td><td class="td-m">Hz (f)</td><td>Freq counter</td></tr>
+              <tr><td>Capacitance</td><td>Farad</td><td class="td-m">F (C)</td><td>LCR meter</td></tr>
+              <tr><td>Inductance</td><td>Henry</td><td class="td-m">H (L)</td><td>LCR meter</td></tr>
+              <tr><td>Impedance</td><td>Ohm</td><td class="td-m">Ω (Z)</td><td>Network anlzr</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card th-green">
+        <div class="ch">∿ Frequency ↔ Wavelength</div>
+        <div class="cb">
+          <div class="fb"><div class="fl">λ (meters)</div><div class="fe">= 300 ÷ f (MHz)</div></div>
+          <div class="fb"><div class="fl">λ (feet)</div><div class="fe">= 984 ÷ f (MHz)</div></div>
+          <div class="fb"><div class="fl">f (MHz)</div><div class="fe">= 300 ÷ λ (meters)</div></div>
+          <div class="fb blue"><div class="fl">Speed of light</div><div class="fe">≈ 3 × 10⁸ m/s</div></div>
+          <div class="callout" style="margin-top:3px;">
+            <strong>Ex:</strong> 2m → 300÷2 = 150 MHz &nbsp;·&nbsp; 70cm (0.7m) → 300÷0.7 ≈ 430 MHz
+          </div>
+        </div>
+      </div>
+
+      <div class="card th-blue">
+        <div class="ch">📡 Antenna Lengths</div>
+        <div class="cb">
+          <div class="fb"><div class="fl">½λ dipole (feet)</div><div class="fe">= 468 ÷ f (MHz)</div></div>
+          <div class="fb"><div class="fl">½λ dipole (meters)</div><div class="fe">= 143 ÷ f (MHz)</div></div>
+          <div class="fb orange"><div class="fl">¼λ vertical (feet)</div><div class="fe">= 234 ÷ f (MHz)</div></div>
+          <div class="fb orange"><div class="fl">¼λ vertical (meters)</div><div class="fe">= 71.5 ÷ f (MHz)</div></div>
+          <div class="callout" style="margin-top:2px;">
+            Dipole feedpoint ≈ 73 Ω &nbsp;·&nbsp; ¼λ vertical ≈ 36.5 Ω (over perfect gnd)
+          </div>
+        </div>
+      </div>
+
+      <div class="card th-red">
+        <div class="ch">⚙ Reactance, Impedance &amp; Resonance</div>
+        <div class="cb">
+          <div class="fb red"><div class="fl">X<sub>L</sub> inductive</div><div class="fe">= 2πfL &nbsp;(Ω)</div></div>
+          <div class="fb red"><div class="fl">X<sub>C</sub> capacitive</div><div class="fe">= 1÷(2πfC) &nbsp;(Ω)</div></div>
+          <div class="fb"><div class="fl">Z impedance</div><div class="fe">= √(R² + X²) &nbsp;(Ω)</div></div>
+          <div class="fb purple"><div class="fl">f<sub>r</sub> resonance</div><div class="fe">= 1÷(2π√LC)</div></div>
+          <hr/>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;font-size:5.8pt;">
+            <div><span class="bold">Series C:</span> <span class="mono">1/C<sub>T</sub>=1/C₁+1/C₂</span></div>
+            <div><span class="bold">Parallel C:</span> <span class="mono">C<sub>T</sub>=C₁+C₂</span></div>
+            <div><span class="bold">Series L:</span> <span class="mono">L<sub>T</sub>=L₁+L₂</span></div>
+            <div><span class="bold">Parallel L:</span> <span class="mono">1/L<sub>T</sub>=1/L₁+1/L₂</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card th-amber">
+        <div class="ch">📊 Decibels (dB) &amp; SWR</div>
+        <div class="cb">
+          <div class="fb"><div class="fl">dB (power)</div><div class="fe">10 × log₁₀(P₁÷P₂)</div></div>
+          <div class="fb"><div class="fl">dB (voltage)</div><div class="fe">20 × log₁₀(V₁÷V₂)</div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:2px 0;font-size:6pt;">
+            <div style="padding:1px 3px;background:#e8f5e9;"><strong>+3 dB</strong> = ×2 power</div>
+            <div style="padding:1px 3px;background:#ffebee;"><strong>−3 dB</strong> = ÷2 power</div>
+            <div style="padding:1px 3px;background:#e8f5e9;"><strong>+6 dB</strong> = ×4 power</div>
+            <div style="padding:1px 3px;background:#ffebee;"><strong>−6 dB</strong> = ÷4 power</div>
+            <div style="padding:1px 3px;background:#e8f5e9;"><strong>+10 dB</strong> = ×10 power</div>
+            <div style="padding:1px 3px;background:#ffebee;"><strong>−10 dB</strong> = ÷10 power</div>
+          </div>
+          <hr/>
+          <div style="font-size:5.8pt;font-weight:bold;color:#666;padding:1px 0 2px;">SWR (Standing Wave Ratio):</div>
+          <div class="fb orange"><div class="fl">SWR</div><div class="fe">Z<sub>max</sub> ÷ Z<sub>min</sub></div></div>
+          <div class="callout" style="margin-top:2px;font-size:5.5pt;">
+            <strong>1:1</strong> = perfect match &nbsp;·&nbsp; <strong>≤1.5:1</strong> = very good &nbsp;·&nbsp; <strong>&gt;3:1</strong> = problem
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /col2 -->
+
+    <!-- ─── COL 3: Band Privileges + Frequencies ─── -->
+    <div class="col">
+
+      <div class="card th-indigo">
+        <div class="ch">📻 Technician License — Band Privileges</div>
+        <div class="cb" style="padding:2px 3px;">
+          <table style="font-size:5.9pt;">
+            <thead>
+              <tr><th>Band</th><th>Frequency</th><th>Seg</th><th>Modes Allowed</th><th>Max PEP</th></tr>
+            </thead>
+            <tbody>
+              <tr class="row-hf"><td class="td-b">80m</td><td class="td-m">3.525–3.600 MHz</td><td>HF</td><td><span class="badge b-cw">CW</span> <span class="badge b-dt">Data</span></td><td>200 W</td></tr>
+              <tr class="row-hf"><td class="td-b">40m</td><td class="td-m">7.025–7.125 MHz</td><td>HF</td><td><span class="badge b-cw">CW</span> <span class="badge b-dt">Data</span></td><td>200 W</td></tr>
+              <tr class="row-hf"><td class="td-b">15m</td><td class="td-m">21.025–21.200 MHz</td><td>HF</td><td><span class="badge b-cw">CW</span> <span class="badge b-dt">Data</span></td><td>200 W</td></tr>
+              <tr class="row-hf"><td class="td-b">10m</td><td class="td-m">28.000–28.300 MHz</td><td>HF</td><td><span class="badge b-cw">CW</span> <span class="badge b-dt">Data</span></td><td>200 W</td></tr>
+              <tr class="row-hf"><td class="td-b">10m ☎</td><td class="td-m">28.300–28.500 MHz</td><td>HF</td><td><span class="badge b-ph">Phone</span> <span class="badge b-dt">Image</span></td><td>200 W</td></tr>
+              <tr class="row-vhf"><td class="td-b">6m</td><td class="td-m">50.0–54.0 MHz</td><td>VHF</td><td><span class="badge b-all">All modes</span></td><td>1500 W</td></tr>
+              <tr class="row-vhf"><td class="td-b">2m ★</td><td class="td-m">144.0–148.0 MHz</td><td>VHF</td><td><span class="badge b-all">All modes</span></td><td>1500 W</td></tr>
+              <tr class="row-vhf"><td class="td-b">1.25m</td><td class="td-m">222.0–225.0 MHz</td><td>VHF</td><td><span class="badge b-all">All modes</span></td><td>1500 W</td></tr>
+              <tr class="row-uhf"><td class="td-b">70cm ★</td><td class="td-m">420–450 MHz</td><td>UHF</td><td><span class="badge b-all">All modes</span></td><td>1500 W</td></tr>
+              <tr class="row-uhf"><td class="td-b">33cm</td><td class="td-m">902–928 MHz</td><td>UHF</td><td><span class="badge b-all">All modes</span></td><td>1500 W</td></tr>
+              <tr class="row-uhf"><td class="td-b">23cm</td><td class="td-m">1240–1300 MHz</td><td>UHF</td><td><span class="badge b-all">All modes</span></td><td>1500 W</td></tr>
+            </tbody>
+          </table>
+          <div class="tiny" style="padding:2px 2px 0;">★ Most-used Technician bands &nbsp;·&nbsp; HF privileges limited to CW/Data except 10m phone segment</div>
+        </div>
+      </div>
+
+      <div class="card th-teal">
+        <div class="ch">📡 Common Frequencies</div>
+        <div class="cb" style="padding:2px 3px;">
+          <table style="font-size:6pt;">
+            <thead><tr><th>MHz</th><th>Use / Name</th><th>Mode</th></tr></thead>
+            <tbody>
+              <tr><td class="td-m td-b">146.520</td><td>2m National FM Simplex <strong>Calling</strong></td><td>FM</td></tr>
+              <tr><td class="td-m td-b">446.000</td><td>70cm National FM Simplex Calling</td><td>FM</td></tr>
+              <tr><td class="td-m">144.200</td><td>2m SSB Weak-Signal Calling</td><td>USB</td></tr>
+              <tr><td class="td-m">144.390</td><td>APRS (North America)</td><td>FM/Pkt</td></tr>
+              <tr><td class="td-m">52.525</td><td>6m National FM Simplex Calling</td><td>FM</td></tr>
+              <tr><td class="td-m">50.125</td><td>6m SSB Weak-Signal Calling</td><td>USB</td></tr>
+              <tr><td class="td-m">162.40–162.55</td><td>NOAA Weather Radio</td><td>NFM</td></tr>
+              <tr><td class="td-m">156.800</td><td>Marine Ch 16 (Distress/Calling)</td><td>FM</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card th-brown">
+        <div class="ch">🔁 Repeater Offsets</div>
+        <div class="cb" style="padding:2px 3px;">
+          <table style="font-size:6pt;">
+            <thead><tr><th>Band</th><th>Std Offset</th><th>US Convention</th></tr></thead>
+            <tbody>
+              <tr><td class="td-b">6m</td><td class="td-m">±1.0 MHz</td><td>Varies by coord</td></tr>
+              <tr><td class="td-b">2m</td><td class="td-m">±600 kHz</td><td>−600 below 147 · +600 above 147</td></tr>
+              <tr><td class="td-b">1.25m</td><td class="td-m">−1.6 MHz</td><td>Output higher than input</td></tr>
+              <tr><td class="td-b">70cm</td><td class="td-m">±5.0 MHz</td><td>Usually −5 MHz</td></tr>
+              <tr><td class="td-b">23cm</td><td class="td-m">±12 MHz</td><td>Varies by coord</td></tr>
+            </tbody>
+          </table>
+          <div class="callout" style="margin-top:3px;font-size:5.5pt;">
+            <strong>Offset</strong> = repeater output freq − your TX freq (input to repeater). CTCSS/PL tones often required for access.
+          </div>
+        </div>
+      </div>
+
+      <div class="card th-navy">
+        <div class="ch">📶 RF Spectrum — Ham Allocations</div>
+        <div class="cb" style="padding:4px 4px 5px;">
+          <div style="display:flex;gap:1px;border-radius:3px;overflow:hidden;height:18px;">
+            <div style="background:#90caf9;flex:.4;display:flex;align-items:center;justify-content:center;font-size:5pt;font-weight:bold;color:#01579b;">MF</div>
+            <div style="background:#4db6ac;flex:1.2;display:flex;align-items:center;justify-content:center;font-size:5.5pt;font-weight:bold;color:#004d40;">HF</div>
+            <div style="background:#81c784;flex:.6;display:flex;align-items:center;justify-content:center;font-size:5.5pt;font-weight:bold;color:#1b5e20;">VHF</div>
+            <div style="background:#ffb74d;flex:.5;display:flex;align-items:center;justify-content:center;font-size:5.5pt;font-weight:bold;color:#e65100;">UHF</div>
+            <div style="background:#ef9a9a;flex:.3;display:flex;align-items:center;justify-content:center;font-size:5pt;font-weight:bold;color:#b71c1c;">SHF</div>
+          </div>
+          <div style="display:flex;gap:1px;margin-top:1px;font-size:4.5pt;color:#777;">
+            <div style="flex:.4;text-align:center;">0.3–3 MHz</div>
+            <div style="flex:1.2;text-align:center;">3–30 MHz</div>
+            <div style="flex:.6;text-align:center;">30–300 MHz</div>
+            <div style="flex:.5;text-align:center;">300 M–3 GHz</div>
+            <div style="flex:.3;text-align:center;">3–30 GHz</div>
+          </div>
+          <div style="margin-top:4px;font-size:5.5pt;">
+            <span style="font-weight:bold;color:#004d40;">HF</span> — ionospheric/sky-wave DX &nbsp;·&nbsp;
+            <span style="font-weight:bold;color:#1b5e20;">VHF/UHF</span> — line-of-sight, FM repeaters &nbsp;·&nbsp;
+            <span style="font-weight:bold;color:#e65100;">UHF</span> — urban coverage
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /col3 -->
+  </div>
+</div>
+
+<!-- ══════════════════════════ SIDE 2 ══════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="ph-title">📻 Ham Radio Technician License — Quick Reference</div>
+    <div class="ph-side">SIDE 2 · Operations · Rules · Safety</div>
+  </div>
+  <div class="page-body">
+
+    <!-- ─── COL 1: Phonetics + Q-Signals + RST ─── -->
+    <div class="col">
+
+      <div class="card th-navy">
+        <div class="ch">🔤 NATO / ITU Phonetic Alphabet</div>
+        <div class="cb" style="padding:3px 5px;">
+          <div class="two-col">
+            <div>
+              <div class="phon-item"><span class="phon-l">A</span><span class="phon-w">Alpha</span></div>
+              <div class="phon-item"><span class="phon-l">B</span><span class="phon-w">Bravo</span></div>
+              <div class="phon-item"><span class="phon-l">C</span><span class="phon-w">Charlie</span></div>
+              <div class="phon-item"><span class="phon-l">D</span><span class="phon-w">Delta</span></div>
+              <div class="phon-item"><span class="phon-l">E</span><span class="phon-w">Echo</span></div>
+              <div class="phon-item"><span class="phon-l">F</span><span class="phon-w">Foxtrot</span></div>
+              <div class="phon-item"><span class="phon-l">G</span><span class="phon-w">Golf</span></div>
+              <div class="phon-item"><span class="phon-l">H</span><span class="phon-w">Hotel</span></div>
+              <div class="phon-item"><span class="phon-l">I</span><span class="phon-w">India</span></div>
+              <div class="phon-item"><span class="phon-l">J</span><span class="phon-w">Juliet</span></div>
+              <div class="phon-item"><span class="phon-l">K</span><span class="phon-w">Kilo</span></div>
+              <div class="phon-item"><span class="phon-l">L</span><span class="phon-w">Lima</span></div>
+              <div class="phon-item"><span class="phon-l">M</span><span class="phon-w">Mike</span></div>
+            </div>
+            <div>
+              <div class="phon-item"><span class="phon-l">N</span><span class="phon-w">November</span></div>
+              <div class="phon-item"><span class="phon-l">O</span><span class="phon-w">Oscar</span></div>
+              <div class="phon-item"><span class="phon-l">P</span><span class="phon-w">Papa</span></div>
+              <div class="phon-item"><span class="phon-l">Q</span><span class="phon-w">Quebec</span></div>
+              <div class="phon-item"><span class="phon-l">R</span><span class="phon-w">Romeo</span></div>
+              <div class="phon-item"><span class="phon-l">S</span><span class="phon-w">Sierra</span></div>
+              <div class="phon-item"><span class="phon-l">T</span><span class="phon-w">Tango</span></div>
+              <div class="phon-item"><span class="phon-l">U</span><span class="phon-w">Uniform</span></div>
+              <div class="phon-item"><span class="phon-l">V</span><span class="phon-w">Victor</span></div>
+              <div class="phon-item"><span class="phon-l">W</span><span class="phon-w">Whiskey</span></div>
+              <div class="phon-item"><span class="phon-l">X</span><span class="phon-w">X-ray</span></div>
+              <div class="phon-item"><span class="phon-l">Y</span><span class="phon-w">Yankee</span></div>
+              <div class="phon-item"><span class="phon-l">Z</span><span class="phon-w">Zulu</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card th-red">
+        <div class="ch">📟 Common Q-Signals</div>
+        <div class="cb" style="padding:3px 5px;">
+          <div class="two-col">
+            <div>
+              <div class="q-item"><span class="q-code">QRM</span><span class="q-def">Man-made interference</span></div>
+              <div class="q-item"><span class="q-code">QRN</span><span class="q-def">Natural static / noise</span></div>
+              <div class="q-item"><span class="q-code">QRO</span><span class="q-def">Increase power</span></div>
+              <div class="q-item"><span class="q-code">QRP</span><span class="q-def">Reduce power / low pwr</span></div>
+              <div class="q-item"><span class="q-code">QRT</span><span class="q-def">Stop transmitting</span></div>
+              <div class="q-item"><span class="q-code">QRV</span><span class="q-def">Ready to receive</span></div>
+              <div class="q-item"><span class="q-code">QRX</span><span class="q-def">Stand by / wait</span></div>
+            </div>
+            <div>
+              <div class="q-item"><span class="q-code">QRZ</span><span class="q-def">Who is calling me?</span></div>
+              <div class="q-item"><span class="q-code">QSB</span><span class="q-def">Signal fading</span></div>
+              <div class="q-item"><span class="q-code">QSL</span><span class="q-def">Confirm receipt / card</span></div>
+              <div class="q-item"><span class="q-code">QSO</span><span class="q-def">Contact / conversation</span></div>
+              <div class="q-item"><span class="q-code">QSY</span><span class="q-def">Change frequency</span></div>
+              <div class="q-item"><span class="q-code">QTH</span><span class="q-def">My location / address</span></div>
+              <div class="q-item"><span class="q-code">QRU</span><span class="q-def">Nothing for you</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card th-teal">
+        <div class="ch">📶 RST Signal Report</div>
+        <div class="cb" style="padding:3px 4px;">
+          <div style="font-size:5.8pt;font-weight:bold;color:#444;margin-bottom:2px;">
+            <strong style="color:#00695c;">R</strong> = Readability 1–5 &nbsp;·&nbsp; <strong style="color:#00695c;">S</strong> = Strength 1–9 &nbsp;·&nbsp; <strong style="color:#00695c;">T</strong> = Tone 1–9 (CW only)
+          </div>
+          <table style="font-size:6pt;">
+            <thead><tr><th>R</th><th>Readability</th><th>S</th><th>Strength</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Unreadable</td><td>1–3</td><td>Faint signals</td></tr>
+              <tr><td>3</td><td>Readable w/difficulty</td><td>5–7</td><td>Fairly good</td></tr>
+              <tr><td>5</td><td>Perfectly readable</td><td>9</td><td>Extremely strong</td></tr>
+            </tbody>
+          </table>
+          <div class="callout" style="margin-top:2px;font-size:5.5pt;">
+            "59" = perfect readability, S9 strength &nbsp;·&nbsp; SSB uses RS only (no Tone)
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /col1 -->
+
+    <!-- ─── COL 2: FCC Rules + Emission Modes ─── -->
+    <div class="col">
+
+      <div class="card th-purple">
+        <div class="ch">⚖ FCC Part 97 — Key Operating Rules</div>
+        <div class="cb">
+          <div class="sl">STATION IDENTIFICATION</div>
+          <div class="ri"><span class="rb">▶</span><span>ID with callsign every <strong>10 minutes</strong> and at the end of each communication session</span></div>
+          <div class="ri"><span class="rb">▶</span><span>ID must use English, CW, or phone — callsign only (not tactical/net names alone)</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Tactical names (e.g., "Net Control") are ok — but FCC callsign ID still required</span></div>
+
+          <hr/>
+          <div class="sl">POWER LIMITS</div>
+          <div class="ri"><span class="rb">▶</span><span><strong>Technician HF bands:</strong> 200 W PEP max (80/40/15/10m)</span></div>
+          <div class="ri"><span class="rb">▶</span><span><strong>All VHF/UHF bands:</strong> 1,500 W PEP (all license classes)</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Always use <strong>minimum power necessary</strong> for reliable communication (§97.313)</span></div>
+
+          <hr/>
+          <div class="sl">PROHIBITED TRANSMISSIONS</div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>Music transmissions (except incidental in retransmitted audio)</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>Obscene, indecent, or profane language</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>False / deceptive signals (false SOS/MAYDAY except genuine emergency)</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>Broadcasting (one-way entertainment transmissions to the public)</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>Communications in return for payment (business for hire)</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>Encrypted messages intended to obscure their meaning</span></div>
+
+          <hr/>
+          <div class="sl">OTHER KEY RULES</div>
+          <div class="ri"><span class="rb">▶</span><span>Third-party traffic: only with countries having a US third-party agreement</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Unattended transmitters: control operator remains responsible at all times</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Emergency comms: may use any frequency with minimum power — <em>"MAYDAY"</em></span></div>
+          <div class="ri"><span class="rb">▶</span><span>Licenses expire every <strong>10 years</strong>; may renew up to 2 years early</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Unlicensed persons (third parties) may speak under licensed op supervision</span></div>
+        </div>
+      </div>
+
+      <div class="card th-blue">
+        <div class="ch">📶 Emission Mode Designators</div>
+        <div class="cb" style="padding:2px 4px;">
+          <table style="font-size:6pt;">
+            <thead><tr><th>FCC Code</th><th>Mode</th><th>Typical Use</th></tr></thead>
+            <tbody>
+              <tr><td class="td-m td-b">A1A</td><td>CW (Morse Code)</td><td>HF, contesting, low power</td></tr>
+              <tr><td class="td-m td-b">A3E</td><td>AM — full carrier DSB</td><td>AM broadcast, CB</td></tr>
+              <tr><td class="td-m td-b">J3E</td><td>SSB Phone (USB / LSB)</td><td>HF DX, weak-signal VHF</td></tr>
+              <tr><td class="td-m td-b">F3E</td><td>FM Phone</td><td>VHF/UHF, repeaters ★</td></tr>
+              <tr><td class="td-m td-b">F2D</td><td>FM Digital (Packet)</td><td>APRS, data links</td></tr>
+              <tr><td class="td-m td-b">G7W</td><td>Weak-sig digital (FT8)</td><td>HF digital DX</td></tr>
+            </tbody>
+          </table>
+          <div class="callout" style="margin-top:3px;font-size:5.5pt;">
+            <strong>USB vs LSB convention:</strong> Below 10 MHz → LSB &nbsp;·&nbsp; 10 MHz and above → USB
+          </div>
+        </div>
+      </div>
+
+      <div class="card th-green">
+        <div class="ch">🏅 License Class Privileges</div>
+        <div class="cb" style="padding:2px 4px;">
+          <table style="font-size:6pt;">
+            <thead><tr><th>Class</th><th>HF Privileges</th><th>VHF / UHF</th></tr></thead>
+            <tbody>
+              <tr><td class="td-b" style="color:#1b5e20;">Technician</td><td>Limited (80/40/15/10m CW+Data; 10m Phone partial)</td><td>Full — all bands</td></tr>
+              <tr><td class="td-b" style="color:#1565c0;">General</td><td>Most HF sub-bands (significant phone)</td><td>Full — all bands</td></tr>
+              <tr><td class="td-b" style="color:#b71c1c;">Extra</td><td>All HF bands &amp; segments (full privileges)</td><td>Full — all bands</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /col2 -->
+
+    <!-- ─── COL 3: Safety + Propagation + Antennas ─── -->
+    <div class="col">
+
+      <div class="card th-red">
+        <div class="ch">⚠ RF &amp; Electrical Safety</div>
+        <div class="cb">
+          <div class="sl">RF EXPOSURE (FCC §97.13)</div>
+          <div class="ri"><span class="rb">▶</span><span><strong>Controlled</strong> env (operators): higher MPE limits permitted</span></div>
+          <div class="ri"><span class="rb">▶</span><span><strong>Uncontrolled</strong> env (public): stricter, lower MPE limits apply</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Evaluation required above certain power thresholds per band</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Distance is the best protection — never sit near a transmitting antenna</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Duty cycle matters: CW &lt; SSB &lt; FM for avg RF exposure</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>NEVER transmit into open-ended feedline or mismatched antenna</span></div>
+
+          <hr/>
+          <div class="sl">ELECTRICAL SAFETY</div>
+          <div class="ri"><span class="rb">▶</span><span>Ground all station equipment — single-point bonding at station</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Use GFI/GFCI outlets near station, especially near batteries/AC</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>NEVER work on powered equipment — discharge caps before touching</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>Disconnect and ground antennas/feed lines during thunderstorms</span></div>
+          <div class="ri"><span class="rb" style="color:#b71c1c;">✕</span><span>NEVER climb towers before/during a storm or in wet conditions</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Tube amps: plate voltages often 2–4 kV — retain charge after power off</span></div>
+          <div class="ri"><span class="rb">▶</span><span>Always discharge high-voltage caps with resistor-on-stick before work</span></div>
+        </div>
+      </div>
+
+      <div class="card th-teal">
+        <div class="ch">🌐 Propagation Modes</div>
+        <div class="cb" style="padding:2px 4px;">
+          <div class="pi"><span class="pn">Ground Wave</span> — MF/low HF; hugs Earth's surface; AM broadcast coverage</div>
+          <div class="pi"><span class="pn">Sky Wave (Ionospheric)</span> — HF; reflects off ionosphere for long-haul DX</div>
+          <div style="padding:1px 2px 1px 10px;font-size:5.5pt;color:#555;border-bottom:1px solid #eef0f5;">
+            <strong>D layer:</strong> Absorbs HF daytime &nbsp;·&nbsp; <strong>E layer:</strong> ~90 km, daytime &nbsp;·&nbsp; <strong>F1/F2:</strong> 200–400 km, main DX
+          </div>
+          <div class="pi"><span class="pn">Sporadic-E (Es)</span> — patchy E layer; enables surprise 6m &amp; 2m DX</div>
+          <div class="pi"><span class="pn">Line-of-Sight (LOS)</span> — VHF/UHF; direct path; typical local FM/repeater</div>
+          <div class="pi"><span class="pn">Tropospheric Ducting</span> — temperature inversions; 100s of miles on VHF/UHF</div>
+          <div class="pi"><span class="pn">Auroral</span> — VHF scatter off aurora; raspy/distorted tone; near polar regions</div>
+          <div class="pi"><span class="pn">Meteor Scatter</span> — short bursts via ionized meteor trails; VHF</div>
+          <div class="pi"><span class="pn">EME (Moonbounce)</span> — reflect off Moon; extreme DX; VHF/UHF</div>
+        </div>
+      </div>
+
+      <div class="card th-orange">
+        <div class="ch">📡 Common Antenna Types</div>
+        <div class="cb" style="padding:2px 4px;">
+          <table style="font-size:5.9pt;">
+            <thead><tr><th>Antenna</th><th>Feed Z</th><th>Pattern</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td class="td-b">½λ Dipole</td><td>≈73 Ω</td><td>Figure-8</td><td>Fundamental; broadside to wire</td></tr>
+              <tr><td class="td-b">¼λ Vertical</td><td>≈36 Ω</td><td>Omni</td><td>Needs ground plane / radials</td></tr>
+              <tr><td class="td-b">Ground Plane</td><td>≈50 Ω</td><td>Omni</td><td>Vertical + 3–4 sloped radials</td></tr>
+              <tr><td class="td-b">Yagi / Beam</td><td>≈50 Ω</td><td>Directional</td><td>High gain; needs rotator for HF</td></tr>
+              <tr><td class="td-b">J-pole</td><td>≈50 Ω</td><td>Omni</td><td>½λ with matching stub; no gnd pln</td></tr>
+              <tr><td class="td-b">Loop (Full)</td><td>≈50–100 Ω</td><td>Varies</td><td>Low noise, HF receive</td></tr>
+              <tr><td class="td-b">Rubber Duck</td><td>≈50 Ω</td><td>Omni</td><td>Short compromise; lower gain</td></tr>
+            </tbody>
+          </table>
+          <div class="callout" style="margin-top:3px;font-size:5.5pt;">
+            <strong>Gain:</strong> dBd = dBi − 2.15 &nbsp;·&nbsp; +3 dBd doubles radiated power in main lobe
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /col3 -->
+  </div>
+</div>
+
+</body>
+</html>
