@@ -45,3 +45,27 @@ lightning, high-voltage hazards
 aurora, meteor scatter, EME
 1. Antenna Types — 7 types with impedance, pattern, and notes
 
+# Prompt 2
+make the omh's law and power law graphic have their more common forms
+
+
+Identified notation discrepancy and standardized voltage variable throughout formulas
+
+I can see the wheel uses E (electromotive force notation) throughout, but most people learn Ohm's Law with V for voltage. I'll update all the formulas to use V consistently — so it reads V=IR, P=VI, R=V/I, etc.
+
+
+Ran a command, edited a file
+
+Now update the section header comment and card title to drop the "E" reference:
+
+Ran a command, read a file
+
+Done. The wheel now uses V throughout — consistent with how virtually every modern textbook and the FCC pool questions phrase it:
+
+* V quadrant: V = IR, V = P÷I, V = √(P×R)
+* P quadrant: P = VI, P = I²R, P = V²÷R
+* I quadrant: I = V÷R, I = P÷V, I = √(P÷R)
+* R quadrant: R = V÷I, R = V²÷P, R = P÷I²
+
+The ARRL traditionally uses E (for EMF), but the ham exam pool itself writes V=IR, so this matches what you'll actually see on the test.
+
